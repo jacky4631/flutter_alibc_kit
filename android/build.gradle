@@ -18,6 +18,11 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        repositories {
+            flatDir {
+                dirs 'libs', 'aars'
+            }
+        }
     }
 }
 
@@ -40,7 +45,7 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.alibaba:fastjson:1.2.52'
+    implementation 'com.alibaba:fastjson:1.1.71.android'
     //security
     // implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
     // implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
@@ -66,5 +71,33 @@ dependencies {
     //ut
     // implementation 'com.taobao.android:utdid4all:1.5.2'
     // implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc'
-    compile fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation(name: 'alibabauth_core-2.0.0.12', ext: 'aar')
+    implementation(name: 'alibabauth_ext-2.0.0.12', ext: 'aar')
+    implementation(name: 'alibabauth_ui-2.0.0.12', ext: 'aar')
+    implementation(name: 'alibc_link_partner-4.1.28', ext: 'aar')
+    implementation(name: 'AlibcTradeBiz-4.1.0.2', ext: 'aar')
+    implementation(name: 'AlibcTradeCommon-4.1.0.2', ext: 'aar')
+    implementation(name: 'app-monitor-sdk-2.6.4.13_for_bc', ext: 'aar')
+    implementation(name: 'MiddleTierSDK-external-release-5.5.85-preInstall', ext: 'aar')
+    implementation(name: 'MiscSDK-external-release-5.5.9-preInstall', ext: 'aar')
+    implementation(name: 'nb_trade-4.1.0.2', ext: 'aar')
+    implementation(name: 'NoCaptchaSDK-external-release-5.5.8-preInstall', ext: 'aar')
+    implementation(name: 'SecurityBodySDK-external-release-5.5.98-preInstall', ext: 'aar')
+    implementation(name: 'SecurityGuardSDK-external-release-5.5.92-preInstall', ext: 'aar')
+
+//    implementation files('libs/alibabauth_core-2.0.0.12.aar')
+//    implementation files('libs/alibabauth_ext-2.0.0.12.aar')
+//    implementation files('libs/alibabauth_ui-2.0.0.12.aar')
+//    implementation files('libs/alibc_link_partner-4.1.28.aar')
+//    implementation files('libs/AlibcTradeBiz-4.1.0.2.aar')
+//    implementation files('libs/AlibcTradeCommon-4.1.0.2.aar')
+//    implementation files('libs/app-monitor-sdk-2.6.4.13_for_bc.aar')
+//    implementation files('libs/MiddleTierSDK-external-release-5.5.85-preInstall.aar')
+//    implementation files('libs/MiscSDK-external-release-5.5.9-preInstall.aar')
+//    implementation files('libs/nb_trade-4.1.0.2.aar')
+//    implementation files('libs/NoCaptchaSDK-external-release-5.5.8-preInstall.aar')
+//    implementation files('libs/SecurityBodySDK-external-release-5.5.98-preInstall.aar')
+//    implementation files('libs/SecurityGuardSDK-external-release-5.5.92-preInstall.aar')
 }
