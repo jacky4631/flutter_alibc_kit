@@ -20,6 +20,7 @@ import com.alibaba.baichuan.trade.biz.context.AlibcTradeResult
 import com.alibaba.baichuan.trade.biz.core.taoke.AlibcTaokeParams
 import com.alibaba.baichuan.trade.biz.login.AlibcLogin
 import com.alibaba.baichuan.trade.biz.login.AlibcLoginCallback
+import com.alibaba.fastjson.JSON
 import com.wxwx.flutter_alibc.web.WebViewActivity
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -57,6 +58,7 @@ class FlutterAlibcHandle(var methodChannel: MethodChannel?){
         val alibcLogin = AlibcLogin.getInstance()
         if(alibcLogin.isLogin){
             val session = alibcLogin.session
+            System.out.println(JSON.toJSONString(alibcLogin.session))
             val userInfo: MutableMap<String, Any> = HashMap()
             userInfo["nick"] = session.nick
             userInfo["avatarUrl"] = session.avatarUrl
@@ -71,6 +73,7 @@ class FlutterAlibcHandle(var methodChannel: MethodChannel?){
             override fun onSuccess(loginResult: Int, openId: String?, nickName: String?) {
                 val userInfo: MutableMap<String, Any> = HashMap()
                 val session = alibcLogin.session
+                System.out.println(JSON.toJSONString(alibcLogin.session))
                 userInfo["nick"] = session.nick
                 userInfo["avatarUrl"] = session.avatarUrl
                 userInfo["openId"] = session.openId
